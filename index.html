@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VNGRD — The Natural Lifter's Truth &amp; Nutrition Unlocked</title>
+<meta name="description" content="How I built my physique only training 3 hours a week — naturally. Two books: Natural Lifter's Truth and Nutrition Unlocked. Written once. Yours forever.">
+<meta name="theme-color" content="#1A1A1E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VNGRD — The Natural Lifter's Truth &amp; Nutrition Unlocked">
+<meta property="og:description" content="Watch this before you spend another year training the way you've been told to.">
+<!-- OPTIONAL: add a share image for Instagram / TikTok link-in-bio previews (1200x630px)
+     <meta property="og:image" content="https://YOUR-DOMAIN/share-card.jpg"> -->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   VNGRD — single-file landing page
+   Design system taken from the two books (Natural Lifter's Truth,
+   Nutrition Unlocked): flat charcoal ground, two golds, Caveat for
+   headings, Montserrat for labels and emphasis, Inter for body.
+   ============================================================ */
+:root{
+  /* Colours — sampled from the book PDFs */
+  --ink:        #1A1A1E;   /* page ground */
+  --ink-2:      #202026;   /* raised surface */
+  --line:       #2F2F38;   /* surface borders */
+  --antique:    #B8893B;   /* deep gold — rules, frames, supporting */
+  --champagne:  #E8CFA0;   /* light gold — emphasis, primary action */
+  --white:      #FFFFFF;   /* body copy */
+  --muted:      #8E8E99;   /* secondary copy, running labels */
+
+  --gold-grad:  linear-gradient(118deg,#B8893B 0%,#E8CFA0 46%,#F1DFB8 60%,#C9A15B 100%);
+
+  --script:     "Caveat", "Segoe Script", cursive;
+  --sans:       "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body:       "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --pad:        1.375rem;
+  --ease:       cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--white);
+  font-family:var(--body);
+  font-size:1.0625rem;
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+.wrap{width:min(100% - (var(--pad) * 2), 68rem);margin-inline:auto}
+section{padding-block:clamp(4.25rem,10vw,8.5rem)}
+
+/* The books' signature divider: a short, solid antique-gold rule
+   sitting directly beneath a heading. */
+.rule{
+  width:clamp(140px,22vw,220px);
+  height:2px;
+  background:var(--antique);
+  border:0;
+  margin:clamp(1.4rem,3vw,1.9rem) 0 0;
+}
+.rule--center{margin-inline:auto}
+
+/* Running-label style: letterspaced Montserrat caps, as used for the
+   book's page footers and figure box labels. */
+.label{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:.68rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* ============================================================
+   Brand marks — official logo art tinted through a CSS mask with
+   the same antique → champagne gradient the books use on numerals.
+   ============================================================ */
+.mark{
+  display:block;
+  margin-inline:auto;
+  background:var(--gold-grad);
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:center;mask-position:center;
+  -webkit-mask-size:contain;mask-size:contain;
+}
+.mark--wordmark{
+  width:clamp(118px,17vw,164px);
+  aspect-ratio:560 / 186;
+  -webkit-mask-image:url("images/vngrd-logo.png");
+  mask-image:url("images/vngrd-logo.png");
+}
+.mark--signature{
+  width:clamp(112px,20vw,148px);
+  aspect-ratio:480 / 168;
+  -webkit-mask-image:url("images/vngrd-signature.png");
+  mask-image:url("images/vngrd-signature.png");
+}
+
+/* ============================================================
+   Header + hero
+   ============================================================ */
+.site-head{padding-block:clamp(1.75rem,4.5vw,3.25rem) 0}
+.hero{padding-top:clamp(2rem,6vw,4.5rem);padding-bottom:clamp(2.25rem,5.5vw,4rem);text-align:center}
+
+h1{margin:0;max-width:46rem;margin-inline:auto;font-family:var(--script)}
+/* Line one — the book covers' script, set large and bold. */
+h1 .head-main{
+  display:block;
+  font-weight:700;
+  font-size:clamp(2.4rem,6.6vw,4.3rem);
+  line-height:1.08;
+  text-wrap:balance;
+}
+/* The beat between the two lines. */
+h1 .head-beat{
+  display:block;
+  font-weight:700;
+  font-size:clamp(1.8rem,4.9vw,3.1rem);
+  line-height:1;
+  letter-spacing:.08em;
+  margin-top:.14em;
+}
+/* Line two — same script, a step smaller. */
+h1 .head-script{
+  display:block;
+  font-weight:600;
+  font-size:clamp(1.8rem,4.9vw,3.1rem);
+  line-height:1.18;
+  margin-top:.14em;
+  text-wrap:balance;
+}
+
+.subhead{
+  margin:clamp(1.25rem,3.2vw,2rem) auto 0;
+  max-width:34rem;
+  color:var(--muted);
+  font-size:clamp(1rem,2.1vw,1.15rem);
+  line-height:1.7;
+}
+
+/* ============================================================
+   Video — a figure box in the books' language: thin antique frame
+   with champagne registration ticks at the corners.
+   ============================================================ */
+.stage{padding-block:0 clamp(2.5rem,6vw,4rem)}
+
+.frame{
+  position:relative;
+  max-width:60rem;
+  margin-inline:auto;
+  border:1px solid var(--antique);
+  padding:clamp(6px,1.1vw,12px);
+}
+.frame::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  pointer-events:none;
+  background:
+    linear-gradient(var(--champagne),var(--champagne)) left  top    /1px 18px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) left  top    /18px 1px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) right top    /1px 18px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) right top    /18px 1px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) left  bottom /1px 18px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) left  bottom /18px 1px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) right bottom /1px 18px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) right bottom /18px 1px no-repeat;
+}
+.video{position:relative;padding-top:56.25%;background:#000}
+.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block}
+
+/* The books' emphasis line: Montserrat Bold in champagne, centred. */
+.stage-note{
+  margin:clamp(2.25rem,5vw,3rem) auto 0;
+  max-width:34rem;
+  text-align:center;
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:clamp(1.18rem,2.9vw,1.8rem);
+  line-height:1.45;
+  letter-spacing:-.005em;
+  color:var(--champagne);
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:56px;
+  padding:1rem 2.1rem;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:1rem;
+  letter-spacing:.015em;
+  line-height:1.2;
+  text-decoration:none;
+  border-radius:2px;
+  text-align:center;
+  transition:background .3s var(--ease), color .3s var(--ease),
+             border-color .3s var(--ease);
+}
+.btn-primary{background:var(--champagne);color:var(--ink)}
+.btn-primary:hover{background:#F3E3C1}
+.btn-ghost{border:1px solid var(--antique);color:var(--white);background:transparent}
+.btn-ghost:hover{border-color:var(--champagne);color:var(--champagne)}
+.btn-lg{
+  min-height:64px;
+  width:100%;
+  max-width:25rem;
+  padding-inline:1.5rem;
+  font-size:clamp(1rem,2.4vw,1.14rem);
+}
+.btn:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
+
+.cta-block{text-align:center}
+.cta-note{
+  margin:1.15rem auto 0;
+  max-width:26rem;
+  text-wrap:balance;
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:.8rem;
+  letter-spacing:.04em;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+/* ============================================================
+   Products — each card set like a book section opening:
+   decimal number, script title, gold rule, then body.
+   ============================================================ */
+.products{padding-top:clamp(3.5rem,8vw,6rem)}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(1.25rem,3vw,1.85rem);
+  max-width:60rem;
+  margin-inline:auto;
+}
+@media (min-width:860px){.cards{grid-template-columns:1fr 1fr}}
+
+.card{
+  --card-pad:clamp(1.5rem,3.6vw,2.35rem);
+  display:flex;
+  flex-direction:column;
+  padding:var(--card-pad);
+  background:var(--ink-2);
+  border:1px solid var(--line);
+  text-align:left;
+}
+
+/* Product render, bled to the card edges so the shot reads as a panel
+   rather than a picture floating on the surface. */
+.mockup{
+  display:block;
+  width:calc(100% + (var(--card-pad) * 2));
+  height:auto;
+  aspect-ratio:1 / 1;
+  object-fit:cover;
+  margin:calc(var(--card-pad) * -1) calc(var(--card-pad) * -1) clamp(1.6rem,3.4vw,2.1rem);
+  border-bottom:1px solid var(--line);
+}
+
+/* Both-books render above the top call to action. */
+.bundle-shot{
+  display:block;
+  width:min(100%,27rem);
+  height:auto;
+  margin:0 auto clamp(1.5rem,3.4vw,2.1rem);
+}
+
+.sec-num{
+  display:block;
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:clamp(2.1rem,4.8vw,2.9rem);
+  line-height:1;
+  letter-spacing:-.02em;
+  background:var(--gold-grad);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+  margin-bottom:.5rem;
+}
+
+.card h2{
+  font-family:var(--script);
+  font-weight:700;
+  font-size:clamp(2rem,4.4vw,2.65rem);
+  line-height:1.06;
+  margin:0;
+}
+.card .rule{margin-top:clamp(1rem,2.2vw,1.3rem)}
+
+.price{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:1.05rem;
+  letter-spacing:.01em;
+  color:var(--champagne);
+  margin:clamp(1.25rem,2.6vw,1.6rem) 0 0;
+  line-height:1.4;
+}
+
+/* Claims separated by hairlines — each rule marks one promise. */
+.spec{list-style:none;margin:clamp(1rem,2.4vw,1.35rem) 0 clamp(1.6rem,3.5vw,2.1rem);padding:0}
+.spec li{
+  padding:.85rem 0;
+  border-top:1px solid var(--line);
+  font-size:.975rem;
+  line-height:1.72;
+  color:var(--white);
+}
+.spec li:last-child{border-bottom:1px solid var(--line)}
+
+.card .btn{margin-top:auto;width:100%}
+
+/* ============================================================
+   Proof
+   ============================================================ */
+/* Two before-and-after pairs. Each pair is one figure box in the books'
+   language — antique frame, champagne corner ticks — with the before
+   sitting directly beside the after, joined across a shared divider. */
+.pairs{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(1.5rem,3.5vw,2rem);
+  max-width:60rem;
+  margin-inline:auto;
+}
+@media (min-width:860px){.pairs{grid-template-columns:1fr 1fr}}
+
+.pair{
+  position:relative;
+  margin:0;
+  padding:clamp(5px,.9vw,9px);
+  border:1px solid var(--antique);
+  background:var(--ink-2);
+}
+.pair::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  pointer-events:none;
+  z-index:2;
+  background:
+    linear-gradient(var(--champagne),var(--champagne)) left  top    /1px 14px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) left  top    /14px 1px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) right top    /1px 14px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) right top    /14px 1px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) left  bottom /1px 14px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) left  bottom /14px 1px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) right bottom /1px 14px no-repeat,
+    linear-gradient(var(--champagne),var(--champagne)) right bottom /14px 1px no-repeat;
+}
+
+/* The headline pair — the page's main proof — runs the full width
+   of the column, above the supporting pairs. */
+.pair--hero{margin-bottom:clamp(1.5rem,3.5vw,2rem)}
+
+.pair-grid{position:relative;display:grid;grid-template-columns:1fr 1fr}
+/* the link between the two halves: a shared divider, crossed at mid-height */
+.pair-cell + .pair-cell{border-left:1px solid var(--antique)}
+.pair-grid::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:40%;
+  width:17px;
+  height:1px;
+  background:var(--champagne);
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+/* label + frame travel together as one grid item */
+.pair-block{display:flex;flex-direction:column}
+.pairs .pair-elapsed{font-size:clamp(1.25rem,2.6vw,1.6rem)}
+
+/* elapsed time, sitting above the pair */
+.pair-elapsed{
+  margin:0 0 clamp(.85rem,2vw,1.2rem);
+  text-align:center;
+  font-family:var(--script);
+  font-weight:700;
+  font-size:clamp(1.55rem,3.5vw,2.2rem);
+  line-height:1.2;
+  color:var(--champagne);
+}
+
+.pair-img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:4 / 5;
+  object-fit:cover;
+  background:var(--ink);
+}
+.pair-label{
+  display:block;
+  text-align:center;
+  padding:.65rem .25rem .5rem;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:.62rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--champagne);
+  line-height:1.4;
+}
+
+/* Figure-caption style from the books: script, in champagne. */
+.proof-caption{
+  margin:clamp(1.6rem,3.5vw,2.2rem) auto 0;
+  max-width:34rem;
+  text-align:center;
+  text-wrap:balance;
+  font-family:var(--script);
+  font-weight:600;
+  font-size:clamp(1.25rem,2.8vw,1.6rem);
+  line-height:1.35;
+  color:var(--champagne);
+}
+
+/* ============================================================
+   Closing
+   ============================================================ */
+.closing{
+  padding-block:clamp(6.5rem,15vw,12rem);
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-foot{
+  padding-block:clamp(3rem,7vw,4.5rem);
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+.copyright{margin:1.7rem 0 0}
+
+/* ============================================================
+   Scroll reveal — armed only when JS runs, so the page stays
+   readable without it.
+   ============================================================ */
+.js .reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .75s var(--ease), transform .75s var(--ease);
+}
+.js .reveal.is-in{opacity:1;transform:none}
+.js .reveal[data-delay="1"]{transition-delay:.09s}
+.js .reveal[data-delay="2"]{transition-delay:.18s}
+
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+}
+
+::selection{background:rgba(232,207,160,.24);color:var(--white)}
+</style>
+</head>
+
+<body>
+<script>document.documentElement.className="js";</script>
+
+<header class="site-head">
+  <div class="wrap">
+    <div class="mark mark--wordmark" role="img" aria-label="VNGRD"></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-labelledby="headline">
+    <div class="wrap">
+      <h1 id="headline" class="reveal">
+        <span class="head-main">How I Built My Physique Only Training 3 Hours A Week</span>
+        <span class="head-beat" aria-hidden="true">...</span>
+        <span class="head-script">Naturally, and without a single thing the fitness industry sold me.</span>
+      </h1>
+      <p class="subhead reveal" data-delay="1">
+        Watch this before you spend another year training the way you&rsquo;ve been told to.
+      </p>
+      <hr class="rule rule--center reveal" data-delay="1">
+    </div>
+  </section>
+
+  <!-- ===== Video ===== -->
+  <section class="stage" aria-label="Watch the video">
+    <div class="wrap">
+      <div class="frame reveal">
+        <div class="video">
+          <iframe src="https://player.vimeo.com/video/1227263387?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  title="The Truth About Natural Lifting"></iframe>
+        </div>
+      </div>
+
+      <p class="stage-note reveal" data-delay="1">
+        Everything in that video is in these two books. Written once. Yours forever.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Bundle CTA ===== -->
+  <section class="cta-block" style="padding-block:0" aria-label="Buy the bundle">
+    <div class="wrap reveal">
+      <img class="bundle-shot" src="images/bundle.jpg"
+           alt="Both books together — Natural Lifter's Truth and Nutrition Unlocked"
+           width="900" height="900" loading="lazy" decoding="async">
+      <!-- Gumroad: the two-book bundle -->
+      <a class="btn btn-primary btn-lg" href="https://lucvngrd.gumroad.com/l/svwqxk">Get Both Books — 99 euros</a>
+      <p class="cta-note">Save 15 euros. Or buy them separately below.</p>
+    </div>
+  </section>
+
+  <!-- ===== Products ===== -->
+  <section class="products" aria-label="The books">
+    <div class="wrap">
+      <div class="cards">
+
+        <article class="card reveal">
+          <img class="mockup" src="images/natural-lifters-truth.jpg"
+               alt="Natural Lifter's Truth by Luc the Vanguard"
+               width="950" height="950" loading="lazy" decoding="async">
+
+          <span class="sec-num" aria-hidden="true">0.1</span>
+          <h2>Natural Lifter&rsquo;s Truth</h2>
+          <hr class="rule">
+          <p class="price">67 euros</p>
+
+          <ul class="spec">
+            <li>Why bodybuilders train every day and you can&rsquo;t.</li>
+            <li>What high intensity actually means, and how it feels seventy-two hours later.</li>
+            <li>How long to rest — and why the pump has been lying to you.</li>
+            <li>Plus the exact four-day program I run, written out set by set.</li>
+          </ul>
+
+          <!-- Gumroad: Natural Lifter's Truth -->
+          <a class="btn btn-ghost" href="https://lucvngrd.gumroad.com/l/rmigko">Get It — 67 euros</a>
+        </article>
+
+        <article class="card reveal" data-delay="1">
+          <img class="mockup" src="images/nutrition-unlocked.jpg"
+               alt="Nutrition Unlocked by Luc the Vanguard"
+               width="950" height="950" loading="lazy" decoding="async">
+
+          <span class="sec-num" aria-hidden="true">0.2</span>
+          <h2>Nutrition Unlocked</h2>
+          <hr class="rule">
+          <p class="price">47 euros</p>
+
+          <ul class="spec">
+            <li>Why carbs, not protein, are what you&rsquo;ve been getting wrong.</li>
+            <li>How to eat without a food scale, and how to eat with one.</li>
+            <li>Macro numbers for gaining, cutting and holding.</li>
+            <li>Cheat meals that cost you nothing.</li>
+            <li>And the only supplements worth your money.</li>
+          </ul>
+
+          <!-- Gumroad: Nutrition Unlocked -->
+          <a class="btn btn-ghost" href="https://lucvngrd.gumroad.com/l/nahkdw">Get It — 47 euros</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Proof ===== -->
+  <section class="proof" aria-label="Results">
+    <div class="wrap">
+      <!-- Two before-and-after pairs. To swap a photo, change the src only —
+           images live in images/ and are sized 4:5 by CSS. -->
+      <p class="pair-elapsed reveal">15 months and 2 weeks</p>
+      <figure class="pair pair--hero reveal">
+        <div class="pair-grid">
+          <div class="pair-cell">
+            <img class="pair-img" src="images/before-1.jpg"
+                 alt="Luc before — the starting point" width="1006" height="1340"
+                 loading="lazy" decoding="async">
+            <span class="pair-label">Before</span>
+          </div>
+          <div class="pair-cell">
+            <img class="pair-img" src="images/after-1.jpg"
+                 alt="Luc after 15 months and 2 weeks of training" width="1006" height="1340"
+                 loading="lazy" decoding="async">
+            <span class="pair-label">After</span>
+          </div>
+        </div>
+      </figure>
+
+      <div class="pairs">
+
+        <div class="pair-block reveal">
+        <p class="pair-elapsed">5 months</p>
+        <figure class="pair">
+          <div class="pair-grid">
+            <div class="pair-cell">
+              <img class="pair-img" src="images/before-2.jpg"
+                   alt="Before starting the program" width="766" height="1020"
+                   loading="lazy" decoding="async">
+              <span class="pair-label">Before</span>
+            </div>
+            <div class="pair-cell">
+              <img class="pair-img" src="images/after-2.jpg"
+                   alt="After following the program" width="764" height="1020"
+                   loading="lazy" decoding="async">
+              <span class="pair-label">After</span>
+            </div>
+          </div>
+        </figure>
+
+        </div>
+
+        <div class="pair-block reveal" data-delay="1">
+        <p class="pair-elapsed">7 months</p>
+        <figure class="pair">
+          <div class="pair-grid">
+            <div class="pair-cell">
+              <img class="pair-img" src="images/before-3.jpg"
+                   alt="Before starting the program" width="765" height="1020"
+                   loading="lazy" decoding="async">
+              <span class="pair-label">Before</span>
+            </div>
+            <div class="pair-cell">
+              <img class="pair-img" src="images/after-3.jpg"
+                   alt="After following the program" width="764" height="1020"
+                   loading="lazy" decoding="async">
+              <span class="pair-label">After</span>
+            </div>
+          </div>
+        </figure>
+        </div>
+
+      </div>
+
+      <p class="proof-caption reveal" data-delay="1">These are naturals. Same principles, different bodies.</p>
+    </div>
+  </section>
+
+  <!-- ===== Closing ===== -->
+  <section class="closing cta-block" aria-label="Buy the bundle">
+    <div class="wrap reveal">
+      <!-- Gumroad: the two-book bundle (same product as above) -->
+      <a class="btn btn-primary btn-lg" href="https://lucvngrd.gumroad.com/l/svwqxk">Get Both Books — 99 euros</a>
+      <p class="cta-note">Buy once. Own forever. Costs less than a night out.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="mark mark--signature" role="img" aria-label="VNGRD signature mark"></div>
+    <p class="copyright label">© 2026 VNGRD by Luc the Vanguard. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < items.length; i++) items[i].classList.add('is-in');
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
