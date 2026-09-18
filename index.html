@@ -662,38 +662,46 @@ h1 .head-main{
    (The reveal lives on .telegram-inner; putting it here would cancel this
    transform, since .reveal.is-in sets transform:none at higher specificity.) */
 .telegram{
+  /* height of the button row alone — the note hangs below it */
+  --tg-h:clamp(24px,2.9vw,40px);
   position:absolute;
-  top:calc(clamp(1.75rem,4.5vw,3.25rem) + clamp(118px,17vw,164px) / 6.022);
+  /* header padding + half the wordmark's height = the wordmark's centre line,
+     then back off half the button row so that row straddles it. Aligning the
+     whole block instead would push the row above the line by half the note. */
+  top:calc(clamp(1.75rem,4.5vw,3.25rem) + clamp(118px,17vw,164px) / 6.022 - var(--tg-h) / 2);
   right:clamp(.7rem,3vw,2.5rem);
-  transform:translateY(-50%);
   z-index:2;
   text-align:center;
 }
 /* Padding keeps the page's own 1 : 2.1 vertical-to-horizontal button ratio;
    the 2px radius and 1px antique border come straight from .btn/.btn-coach,
    and the icon stroke resolves to the same ~1.1px hairline as the line art. */
+/* the halo is an inline-block, so the parent's line-height would add leading
+   above it and drop the row below the wordmark's centre — zero it here and
+   let the note restore its own */
+.telegram-inner{line-height:0}
 .telegram .btn-telegram{
-  min-height:clamp(24px,2.1vw,29px);
-  padding:clamp(.28rem,.42vw,.34rem) clamp(.52rem,.8vw,.64rem);
-  font-size:clamp(.52rem,.72vw,.58rem);
+  min-height:var(--tg-h);
+  padding:clamp(.28rem,.55vw,.5rem) clamp(.52rem,1.05vw,.88rem);
+  font-size:clamp(.52rem,.9vw,.74rem);
   letter-spacing:.01em;
   gap:.42em;
 }
 .telegram .tg-icon{width:1.15em;height:1.15em;stroke-width:2.4}
 .telegram .coach-note{
-  margin-top:clamp(.22rem,.45vw,.34rem);
-  font-size:clamp(.56rem,.85vw,.68rem);
+  margin-top:clamp(.22rem,.55vw,.42rem);
+  font-size:clamp(.56rem,1.05vw,.86rem);
 }
 /* The wordmark floors at 118px on small screens while the button would not,
    so step it down to hold the same ~78% width relationship throughout. */
 @media (max-width:700px){
-  .telegram{right:.7rem}
-  .telegram .btn-telegram{min-height:25px;padding:.3rem .56rem;font-size:.5rem}
+  .telegram{right:.7rem;--tg-h:25px}
+  .telegram .btn-telegram{padding:.3rem .56rem;font-size:.5rem}
   .telegram .coach-note{margin-top:.24rem;font-size:.54rem}
 }
 @media (max-width:380px){
-  .telegram{right:.55rem}
-  .telegram .btn-telegram{min-height:21px;padding:.24rem .46rem;font-size:.44rem}
+  .telegram{right:.55rem;--tg-h:21px}
+  .telegram .btn-telegram{padding:.24rem .46rem;font-size:.44rem}
   .telegram .coach-note{margin-top:.2rem;font-size:.48rem}
 }
 .btn-telegram{gap:.6em}
