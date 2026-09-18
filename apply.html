@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply for 1-on-1 Coaching — VNGRD</title>
+<meta name="description" content="Apply to train one-to-one with Luc the Vanguard. I read every application myself.">
+<meta name="theme-color" content="#1A1A1E">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Learn Directly From Me — VNGRD">
+<meta property="og:description" content="I read every application myself. If it's a fit, I'll come back to you personally.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   VNGRD — coaching application
+   Same system as the landing page: flat charcoal ground, two golds,
+   Caveat for headings, Montserrat for buttons, Inter for body.
+   ============================================================ */
+:root{
+  --ink:        #1A1A1E;
+  --ink-2:      #202026;
+  --line:       #2F2F38;
+  --antique:    #B8893B;
+  --champagne:  #E8CFA0;
+  --white:      #FFFFFF;
+  --muted:      #8E8E99;
+
+  --gold-grad:  linear-gradient(118deg,#B8893B 0%,#E8CFA0 46%,#F1DFB8 60%,#C9A15B 100%);
+
+  --script:     "Caveat", "Segoe Script", cursive;
+  --sans:       "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body:       "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --pad:        1.375rem;
+  --ease:       cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--white);
+  font-family:var(--body);
+  font-size:1.0625rem;
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+.wrap{width:min(100% - (var(--pad) * 2), 68rem);margin-inline:auto}
+section{padding-block:clamp(4.25rem,10vw,8.5rem)}
+
+/* Tapered to a point at both ends, so the stroke fades out instead of
+   stopping dead, and carrying the same warm gold light as the button. */
+.rule{
+  width:clamp(140px,22vw,220px);
+  height:2px;
+  border:0;
+  margin:clamp(1.4rem,3vw,1.9rem) 0 0;
+  background:linear-gradient(90deg,
+    rgba(184,137,59,0) 0%,
+    var(--antique) 16%,
+    var(--champagne) 50%,
+    var(--antique) 84%,
+    rgba(184,137,59,0) 100%);
+  clip-path:polygon(0 50%, 22% 0, 78% 0, 100% 50%, 78% 100%, 22% 100%);
+  filter:
+    drop-shadow(0 0 5px rgba(232,207,160,.30))
+    drop-shadow(0 0 14px rgba(201,161,91,.17))
+    drop-shadow(0 0 26px rgba(184,137,59,.10));
+}
+.rule--center{margin-inline:auto}
+
+/* ============================================================
+   Brand mark — signature and wordmark as one lockup. The gold is
+   baked into the file as a single gradient across both elements,
+   so this is placed as an image rather than a tinted mask.
+   ============================================================ */
+.lockup{
+  display:block;
+  width:clamp(80px,14vw,115px);
+  height:auto;
+  margin-inline:auto;
+}
+.mark-link{display:block;width:fit-content;margin-inline:auto}
+.mark-link:focus-visible{outline:2px solid var(--champagne);outline-offset:6px}
+
+/* ============================================================
+   Head of page
+   ============================================================ */
+.site-head{padding-block:clamp(1.75rem,4.5vw,3.25rem) 0}
+.apply{padding-top:clamp(2rem,6vw,4.5rem);text-align:center}
+
+h1{
+  margin:0;
+  font-family:var(--script);
+  font-weight:700;
+  font-size:clamp(2.4rem,6.6vw,4.3rem);
+  line-height:1.08;
+  max-width:46rem;
+  margin-inline:auto;
+  text-wrap:balance;
+}
+
+.subhead{
+  margin:clamp(1.25rem,3.2vw,2rem) auto 0;
+  max-width:34rem;
+  font-weight:500;
+  color:var(--muted);
+  font-size:clamp(1rem,2.1vw,1.15rem);
+  line-height:1.7;
+}
+
+/* ============================================================
+   Form
+   ============================================================ */
+.form{
+  max-width:38rem;
+  margin:clamp(3rem,7vw,5rem) auto 0;
+  text-align:left;
+}
+
+.group{
+  border:0;
+  margin:0 0 clamp(3rem,7vw,4.75rem);
+  padding:0;
+  min-width:0;
+}
+.group:last-of-type{margin-bottom:clamp(2.5rem,6vw,3.75rem)}
+
+.group-name{
+  display:block;
+  width:100%;
+  padding:0;
+  float:none;
+  text-align:center;
+  font-family:var(--script);
+  font-weight:700;
+  font-size:clamp(1.45rem,3.2vw,1.9rem);
+  line-height:1.2;
+  color:var(--champagne);
+}
+/* heading and rule share one centre, with matched space around the pair */
+.group .rule{
+  margin-inline:auto;
+  margin-top:clamp(.7rem,1.6vw,.95rem);
+}
+.group .rule + .field{margin-top:clamp(1.6rem,3.4vw,2.15rem)}
+
+.field{margin-top:clamp(1.35rem,3vw,1.85rem)}
+.field > label{
+  display:block;
+  margin-bottom:.55rem;
+  font-family:var(--script);
+  font-weight:600;
+  font-size:clamp(1.08rem,2.3vw,1.28rem);
+  line-height:1.3;
+  color:var(--champagne);
+}
+
+.field input,
+.field select,
+.field textarea{
+  display:block;
+  width:100%;
+  background:var(--ink);
+  border:1px solid var(--antique);
+  border-radius:2px;
+  color:var(--white);
+  font-family:var(--body);
+  font-size:1rem;
+  line-height:1.65;
+  padding:.8rem 1rem;
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+.field input,
+.field select{min-height:52px}
+.field textarea{resize:vertical}
+
+.field input::placeholder,
+.field textarea::placeholder{color:var(--muted);opacity:1}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  color:var(--champagne);
+  border-color:var(--champagne);
+  outline:none;
+}
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
+
+/* native select, restyled to the page's language */
+.select{position:relative}
+.select select{appearance:none;-webkit-appearance:none;padding-right:2.75rem;cursor:pointer}
+.select::after{
+  content:"";
+  position:absolute;
+  right:1.1rem;
+  top:50%;
+  width:9px;
+  height:9px;
+  border-right:1.5px solid var(--antique);
+  border-bottom:1.5px solid var(--antique);
+  transform:translateY(-70%) rotate(45deg);
+  pointer-events:none;
+}
+.select select:focus ~ ::after{border-color:var(--champagne)}
+.field option{background:var(--ink);color:var(--white)}
+
+.row2{display:grid;gap:clamp(1.1rem,2.6vw,1.6rem);grid-template-columns:1fr}
+@media (min-width:620px){
+  .row2{grid-template-columns:1fr 1fr}
+  .row2 .field{margin-top:clamp(1.35rem,3vw,1.85rem)}
+}
+
+/* ============================================================
+   Buttons — the coaching treatment from the landing page
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:56px;
+  padding:1rem 2.1rem;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:1rem;
+  letter-spacing:.015em;
+  line-height:1.2;
+  text-decoration:none;
+  border-radius:2px;
+  text-align:center;
+  cursor:pointer;
+  transition:background .3s var(--ease), color .3s var(--ease),
+             border-color .3s var(--ease);
+}
+.btn:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
+
+.coach-halo{position:relative;display:inline-block;max-width:100%}
+.coach-halo::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:300%;
+  height:380%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(ellipse at center,
+    rgba(232,207,160,.15) 0%,
+    rgba(201,161,91,.085) 30%,
+    rgba(184,137,59,.035) 52%,
+    rgba(184,137,59,0) 72%);
+  filter:blur(16px);
+  pointer-events:none;
+}
+.btn-coach{
+  position:relative;
+  z-index:1;
+  max-width:100%;
+  background:var(--ink);
+  border:1px solid var(--antique);
+  color:var(--champagne);
+}
+.btn-coach:hover{background:var(--ink-2);border-color:var(--champagne)}
+.btn-coach[disabled]{opacity:.55;cursor:default}
+
+.form-send{text-align:center}
+
+.form-error{
+  margin:1.25rem auto 0;
+  max-width:26rem;
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:.8rem;
+  letter-spacing:.04em;
+  line-height:1.65;
+  color:var(--muted);
+}
+
+/* ============================================================
+   Confirmation, shown in place of the form
+   ============================================================ */
+.done{
+  max-width:34rem;
+  margin:clamp(3rem,8vw,6rem) auto 0;
+  text-align:center;
+  text-wrap:balance;
+  font-family:var(--script);
+  font-weight:700;
+  font-size:clamp(1.6rem,4vw,2.5rem);
+  line-height:1.25;
+  color:var(--champagne);
+}
+.done:focus{outline:none}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-foot{
+  padding-block:clamp(3rem,7vw,4.5rem);
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+.copyright{
+  margin:0;
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:.68rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* ============================================================
+   Scroll reveal — armed only when JS runs
+   ============================================================ */
+.js .reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .75s var(--ease), transform .75s var(--ease);
+}
+.js .reveal.is-in{opacity:1;transform:none}
+.js .reveal[data-delay="1"]{transition-delay:.09s}
+.js .reveal[data-delay="2"]{transition-delay:.18s}
+
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+}
+
+::selection{background:rgba(232,207,160,.24);color:var(--white)}
+</style>
+</head>
+
+<body>
+<script>document.documentElement.className="js";</script>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark-link" href="index.html">
+      <img class="lockup" src="vngrd-lockup.png" alt="VNGRD — back to the main page"
+           width="1134" height="566">
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="apply" aria-labelledby="page-title">
+    <div class="wrap">
+      <h1 id="page-title" class="reveal">Learn Directly From Me</h1>
+      <p class="subhead reveal" data-delay="1">
+        I read every application myself. If it&rsquo;s a fit, I&rsquo;ll come back to you personally.
+      </p>
+      <hr class="rule rule--center reveal" data-delay="1">
+
+      <!-- Submissions are emailed via Formspree -->
+      <form id="apply-form" class="form reveal" data-delay="1"
+            action="https://formspree.io/f/mzezzpwy"
+            method="POST">
+
+        <input type="hidden" name="_subject" value="New coaching application — VNGRD">
+
+        <fieldset class="group">
+          <legend class="group-name">Who you are</legend>
+          <hr class="rule">
+
+          <div class="row2">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="age">Age</label>
+              <input id="age" name="Age" type="text" inputmode="numeric" autocomplete="off" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email"
+                   inputmode="email" spellcheck="false" required>
+          </div>
+
+          <div class="field">
+            <label for="instagram">Instagram handle</label>
+            <input id="instagram" name="Instagram handle" type="text" autocomplete="off" placeholder="@">
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend class="group-name">Where you&rsquo;re at</legend>
+          <hr class="rule">
+
+          <div class="field">
+            <label for="why-now">Why now?</label>
+            <textarea id="why-now" name="Why now" rows="3" required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="one-thing">What&rsquo;s the one thing you&rsquo;d change about your body if you could?</label>
+            <textarea id="one-thing" name="One thing you would change" rows="6" required></textarea>
+          </div>
+
+          <div class="field select">
+            <label for="experience">How long have you been training?</label>
+            <select id="experience" name="How long training" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Less than 6 months</option>
+              <option>6 months to a year</option>
+              <option>1 to 3 years</option>
+              <option>3 to 5 years</option>
+              <option>More than 5 years</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="goal">What&rsquo;s your goal, in your own words?</label>
+            <textarea id="goal" name="Goal" rows="3" required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="obstacle">What&rsquo;s stood in your way so far?</label>
+            <textarea id="obstacle" name="What has stood in the way" rows="3" required></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend class="group-name">How serious you are</legend>
+          <hr class="rule">
+
+          <div class="field">
+            <label for="consistency">Can you train three to four days a week, consistently?</label>
+            <textarea id="consistency" name="Can train 3-4 days a week" rows="2" required></textarea>
+          </div>
+
+          <div class="field select">
+            <label for="invest">What are you able to invest in yourself to become great?</label>
+            <select id="invest" name="Able to invest" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Under 50 euros</option>
+              <option>50 to 200 euros</option>
+              <option>200 euros plus</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <div class="form-send">
+          <span class="coach-halo">
+            <button type="submit" class="btn btn-coach">Send Application</button>
+          </span>
+          <p class="form-error" id="apply-error" role="alert" hidden>
+            That didn&rsquo;t send. Check your connection and try again.
+          </p>
+        </div>
+      </form>
+
+      <p class="done" id="apply-done" role="status" tabindex="-1" hidden>
+        Application received. If it&rsquo;s a fit, you&rsquo;ll hear from me directly.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="copyright">© 2026 VNGRD by Luc the Vanguard. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < items.length; i++) items[i].classList.add('is-in');
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  // Submit in place, so the confirmation replaces the form rather than
+  // sending the visitor off to Formspree's own page. Without JS the form
+  // still posts natively.
+  var form = document.getElementById('apply-form');
+  var done = document.getElementById('apply-done');
+  var error = document.getElementById('apply-error');
+  if (!form || !window.fetch) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn.textContent;
+    error.hidden = true;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (!res.ok) throw new Error(res.status);
+      form.hidden = true;
+      done.hidden = false;
+      done.focus();
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = label;
+      error.hidden = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
