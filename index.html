@@ -197,14 +197,22 @@ h1 .head-main{
   text-wrap:balance;
 }
 
-/* what the year actually costs — plain body copy, said once */
-.cost{
-  margin:clamp(1.5rem,3.5vw,2.25rem) auto 0;
-  max-width:36rem;
-  font-size:clamp(1.02rem,2.1vw,1.15rem);
-  line-height:1.75;
+/* What the year actually costs. A weighted list, not a bulleted one:
+   the gold phrase carries the weight, the bracket carries the
+   consequence. No marks, no dashes. */
+.costs{margin:clamp(1.9rem,4.2vw,2.9rem) auto 0;max-width:38rem}
+.cost-line{margin:0;line-height:1.5;text-wrap:balance}
+.cost-line + .cost-line{margin-top:clamp(1.6rem,3.6vw,2.4rem)}
+.cost-line strong{
+  font-weight:600;
+  font-size:clamp(1.2rem,2.7vw,1.5rem);
+  letter-spacing:-.006em;
+  color:var(--champagne);
+}
+.cost-line span{
+  font-weight:400;
+  font-size:clamp(1rem,2.05vw,1.1rem);
   color:var(--white);
-  text-wrap:balance;
 }
 
 /* ============================================================
@@ -685,13 +693,20 @@ h1 .head-main{
 
       <p class="subhead reveal" data-delay="1">
         Watch this before you spend another year training the way you&rsquo;ve been told to.
+        Not because I said so, but because another year costs you&hellip;
       </p>
 
-      <p class="cost reveal" data-delay="1">
-        Another year of this costs three things. The hours, which don&rsquo;t come back.
-        The effort, spent on the wrong lifts and the wrong food. And next summer,
-        the same body you have today.
-      </p>
+      <div class="costs reveal" data-delay="1">
+        <p class="cost-line">
+          <strong>The hours</strong> <span>(which don&rsquo;t come back)</span>
+        </p>
+        <p class="cost-line">
+          <strong>The effort</strong> <span>(spent on the wrong lifts and the wrong food)</span>
+        </p>
+        <p class="cost-line">
+          <strong>The next summer</strong> <span>(you won&rsquo;t have the body you want, you&rsquo;ll look exactly like you do now)</span>
+        </p>
+      </div>
 
       <p class="stage-note reveal" data-delay="1">
         Every piece of information I know is in these two books. Written once, but yours forever.
