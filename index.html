@@ -15,7 +15,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
@@ -65,12 +65,25 @@ section{padding-block:clamp(4.25rem,10vw,8.5rem)}
 
 /* The books' signature divider: a short, solid antique-gold rule
    sitting directly beneath a heading. */
+/* One divider treatment for the whole site: thin, tapered to a point at
+   both ends so it fades out rather than stopping dead, lit with the same
+   gold. Identical to the application page's. */
 .rule{
   width:clamp(140px,22vw,220px);
   height:2px;
-  background:var(--antique);
   border:0;
   margin:clamp(1.4rem,3vw,1.9rem) 0 0;
+  background:linear-gradient(90deg,
+    rgba(184,137,59,0) 0%,
+    var(--antique) 16%,
+    var(--champagne) 50%,
+    var(--antique) 84%,
+    rgba(184,137,59,0) 100%);
+  clip-path:polygon(0 50%, 22% 0, 78% 0, 100% 50%, 78% 100%, 22% 100%);
+  filter:
+    drop-shadow(0 0 5px rgba(232,207,160,.30))
+    drop-shadow(0 0 14px rgba(201,161,91,.17))
+    drop-shadow(0 0 26px rgba(184,137,59,.10));
 }
 .rule--center{margin-inline:auto}
 
@@ -114,7 +127,7 @@ section{padding-block:clamp(4.25rem,10vw,8.5rem)}
 /* ============================================================
    Header + hero
    ============================================================ */
-.site-head{padding-block:clamp(1.75rem,4.5vw,3.25rem) 0}
+.site-head{position:relative;padding-block:clamp(1.75rem,4.5vw,3.25rem) 0}
 .hero{padding-top:clamp(2rem,6vw,4.5rem);padding-bottom:clamp(2.25rem,5.5vw,4rem);text-align:center}
 
 h1{margin:0;max-width:46rem;margin-inline:auto;font-family:var(--script)}
@@ -128,17 +141,21 @@ h1 .head-main{
 }
 
 
-/* The setup for everything below it, so it carries real weight:
-   between the script above and the consequences beneath, in white,
-   on a measure wide enough to land on two lines. */
+/* The setup for everything below it. Second only to the handwritten
+   line above: bigger and bolder than the consequences beneath, with a
+   soft gold light behind the words so the eye lands here off the video. */
 .subhead{
-  margin:clamp(1.4rem,3.4vw,2.1rem) auto 0;
-  max-width:46rem;
-  font-weight:500;
+  margin:clamp(1.6rem,3.8vw,2.4rem) auto 0;
+  max-width:62rem;
+  font-weight:700;
   color:var(--white);
-  font-size:clamp(1.12rem,2.45vw,1.42rem);
-  line-height:1.55;
+  font-size:clamp(1.3rem,2.85vw,1.78rem);
+  line-height:1.4;
+  letter-spacing:-.012em;
   text-wrap:balance;
+  text-shadow:
+    0 0 18px rgba(232,207,160,.22),
+    0 0 44px rgba(201,161,91,.14);
 }
 
 /* ============================================================
@@ -216,6 +233,9 @@ h1 .head-main{
 .branch-lines path{fill:none;stroke:var(--antique);stroke-width:2;stroke-linecap:round}
 .branch-lines circle{fill:var(--champagne)}
 .branch-lines--tall{display:none}
+
+/* generous, even air either side of the divider before the books line */
+.lede .rule--spaced{margin:clamp(3.25rem,7.5vw,5.5rem) auto}
 
 .branch-row{
   display:grid;
@@ -634,6 +654,62 @@ h1 .head-main{
 }
 
 /* ============================================================
+   Telegram — the coaching button's treatment, never Telegram blue.
+   ============================================================ */
+/* Absolute, not fixed, so it scrolls away. Its top is the header's own
+   padding plus half the wordmark's height, then pulled back half its own
+   height — so both sit on one centre line whatever the viewport.
+   (The reveal lives on .telegram-inner; putting it here would cancel this
+   transform, since .reveal.is-in sets transform:none at higher specificity.) */
+.telegram{
+  position:absolute;
+  top:calc(clamp(1.75rem,4.5vw,3.25rem) + clamp(118px,17vw,164px) / 6.022);
+  right:clamp(.7rem,3vw,2.5rem);
+  transform:translateY(-50%);
+  z-index:2;
+  text-align:center;
+}
+/* Padding keeps the page's own 1 : 2.1 vertical-to-horizontal button ratio;
+   the 2px radius and 1px antique border come straight from .btn/.btn-coach,
+   and the icon stroke resolves to the same ~1.1px hairline as the line art. */
+.telegram .btn-telegram{
+  min-height:clamp(24px,2.1vw,29px);
+  padding:clamp(.28rem,.42vw,.34rem) clamp(.52rem,.8vw,.64rem);
+  font-size:clamp(.52rem,.72vw,.58rem);
+  letter-spacing:.01em;
+  gap:.42em;
+}
+.telegram .tg-icon{width:1.15em;height:1.15em;stroke-width:2.4}
+.telegram .coach-note{
+  margin-top:clamp(.22rem,.45vw,.34rem);
+  font-size:clamp(.56rem,.85vw,.68rem);
+}
+/* The wordmark floors at 118px on small screens while the button would not,
+   so step it down to hold the same ~78% width relationship throughout. */
+@media (max-width:700px){
+  .telegram{right:.7rem}
+  .telegram .btn-telegram{min-height:25px;padding:.3rem .56rem;font-size:.5rem}
+  .telegram .coach-note{margin-top:.24rem;font-size:.54rem}
+}
+@media (max-width:380px){
+  .telegram{right:.55rem}
+  .telegram .btn-telegram{min-height:21px;padding:.24rem .46rem;font-size:.44rem}
+  .telegram .coach-note{margin-top:.2rem;font-size:.48rem}
+}
+.btn-telegram{gap:.6em}
+.tg-icon{
+  width:1.3em;
+  height:1.3em;
+  flex:0 0 auto;
+  fill:none;
+  stroke:var(--champagne);
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:url(#handdrawn);
+}
+
+/* ============================================================
    Closing
    ============================================================ */
 .closing{
@@ -693,6 +769,28 @@ h1 .head-main{
 <header class="site-head">
   <div class="wrap">
     <div class="mark mark--wordmark" role="img" aria-label="VNGRD"></div>
+  </div>
+
+  <!-- ===== Telegram ===== -->
+  <div class="telegram">
+    <div class="telegram-inner reveal">
+      <span class="coach-halo">
+        <a class="btn btn-coach btn-telegram"
+           href="https://t.me/+73oI9YpBD3plNzZk"
+           target="_blank" rel="noopener noreferrer">
+          <svg class="tg-icon" viewBox="0 0 28 28" aria-hidden="true">
+            <path d="M3 13.4 C9 10.9 17 7.9 24.2 5.2"/>
+            <path d="M24.2 5.2 C22.7 11.8 21.1 18.2 19.4 23.8"/>
+            <path d="M3 13.4 C6.4 14.7 8.9 15.7 11.1 16.7"/>
+            <path d="M11.1 16.7 C13.7 18.9 16.5 21.3 19.4 23.8"/>
+            <path d="M11.1 16.7 C15 13.4 19.3 9.4 24.2 5.2"/>
+            <path d="M11.1 16.7 C10.9 18.5 10.9 20.1 11.1 21.5 C12.7 20.4 14.1 19.3 15.4 18.1"/>
+          </svg>
+          Join The Telegram
+        </a>
+      </span>
+      <p class="coach-note">Daily lessons, free.</p>
+    </div>
   </div>
 </header>
 
@@ -760,6 +858,8 @@ h1 .head-main{
           </div>
         </div>
       </div>
+
+      <hr class="rule rule--center rule--spaced reveal" data-delay="1">
 
       <p class="stage-note reveal" data-delay="1">
         Every piece of information I know is in these two books. Written once, but yours forever.
