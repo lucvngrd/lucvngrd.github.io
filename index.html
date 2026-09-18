@@ -126,24 +126,7 @@ h1 .head-main{
   line-height:1.08;
   text-wrap:balance;
 }
-/* The beat between the two lines. */
-h1 .head-beat{
-  display:block;
-  font-weight:700;
-  font-size:clamp(1.8rem,4.9vw,3.1rem);
-  line-height:1;
-  letter-spacing:.08em;
-  margin-top:.14em;
-}
-/* Line two — same script, a step smaller. */
-h1 .head-script{
-  display:block;
-  font-weight:600;
-  font-size:clamp(1.8rem,4.9vw,3.1rem);
-  line-height:1.18;
-  margin-top:.14em;
-  text-wrap:balance;
-}
+
 
 .subhead{
   margin:clamp(1.25rem,3.2vw,2rem) auto 0;
@@ -196,6 +179,32 @@ h1 .head-script{
   line-height:1.45;
   letter-spacing:-.005em;
   color:var(--champagne);
+}
+
+/* ============================================================
+   Sub-copy — the beat under the video, before the books are named.
+   ============================================================ */
+.lede{padding-block:0 clamp(3.5rem,8vw,6rem);text-align:center}
+
+/* the brand's own voice, in the book covers' script */
+.lede-script{
+  margin:0 auto;
+  max-width:30rem;
+  font-family:var(--script);
+  font-weight:600;
+  font-size:clamp(1.7rem,4.5vw,2.9rem);
+  line-height:1.18;
+  text-wrap:balance;
+}
+
+/* what the year actually costs — plain body copy, said once */
+.cost{
+  margin:clamp(1.5rem,3.5vw,2.25rem) auto 0;
+  max-width:36rem;
+  font-size:clamp(1.02rem,2.1vw,1.15rem);
+  line-height:1.75;
+  color:var(--white);
+  text-wrap:balance;
 }
 
 /* ============================================================
@@ -280,13 +289,7 @@ h1 .head-script{
   border-bottom:1px solid var(--line);
 }
 
-/* Both-books render above the top call to action. */
-.bundle-shot{
-  display:block;
-  width:min(100%,27rem);
-  height:auto;
-  margin:0 auto clamp(1.5rem,3.4vw,2.1rem);
-}
+
 
 .sec-num{
   display:block;
@@ -632,18 +635,12 @@ h1 .head-script{
 
 <main>
 
-  <!-- ===== Hero ===== -->
+  <!-- ===== Headline ===== -->
   <section class="hero" aria-labelledby="headline">
     <div class="wrap">
       <h1 id="headline" class="reveal">
-        <span class="head-main">How I Built My Physique Only Training 3 Hours A Week</span>
-        <span class="head-beat" aria-hidden="true">...</span>
-        <span class="head-script">Naturally, and without a single thing the fitness industry sold me.</span>
+        <span class="head-main">How I Built My Physique Only Training 3 Hours A Week...</span>
       </h1>
-      <p class="subhead reveal" data-delay="1">
-        Watch this before you spend another year training the way you&rsquo;ve been told to.
-      </p>
-      <hr class="rule rule--center reveal" data-delay="1">
     </div>
   </section>
 
@@ -659,22 +656,53 @@ h1 .head-script{
                   title="The Truth About Natural Lifting"></iframe>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== Sub-copy ===== -->
+  <section class="lede" aria-label="What this is">
+    <div class="wrap">
+      <p class="lede-script reveal">
+        Naturally, and without a single thing the fitness industry sold me.
+      </p>
+
+      <p class="subhead reveal" data-delay="1">
+        Watch this before you spend another year training the way you&rsquo;ve been told to.
+      </p>
+
+      <p class="cost reveal" data-delay="1">
+        Another year of this costs three things. The hours, which don&rsquo;t come back.
+        The effort, spent on the wrong lifts and the wrong food. And next summer,
+        the same body you have today.
+      </p>
 
       <p class="stage-note reveal" data-delay="1">
         Every piece of information I know is in these two books. Written once, but yours forever.
       </p>
+
+      <hr class="rule rule--center reveal" data-delay="1">
     </div>
   </section>
 
-  <!-- ===== Bundle CTA ===== -->
-  <section class="cta-block" style="padding-block:0" aria-label="Buy the bundle">
+  <!-- ===== Figure: rate of progress ===== -->
+  <section class="fig-section" aria-label="Rate of progress">
     <div class="wrap reveal">
-      <img class="bundle-shot" src="bundle-full.png"
-           alt="Both books together — Natural Lifter's Truth and Nutrition Unlocked"
-           width="900" height="900" loading="lazy" decoding="async">
-      <!-- Gumroad: the two-book bundle -->
-      <a class="btn btn-primary btn-lg" href="https://lucvngrd.gumroad.com/l/svwqxk">Get Both Books — 99 euros</a>
-      <p class="cta-note">Save 15 euros. Or buy them separately below.</p>
+      <figure class="fig">
+        <div class="fig-plot">
+          <svg class="fig-svg" viewBox="0 0 420 300" role="img"
+               aria-label="Three trajectories rising from one starting point. Doing what you are doing now stays flat then dips. With the books climbs steadily. Coaching directly with me climbs fastest and furthest.">
+            <path class="fig-axis" d="M27 44 C26 108 28 172 28 242"/>
+            <path class="fig-axis" d="M26 246 C92 248 160 250 238 250"/>
+            <path class="fig-line fig-line--low" d="M30 238 C64 235 96 233 128 236 C158 239 182 243 204 249 C218 253 232 257 250 262"/>
+            <path class="fig-line fig-line--mid" d="M30 238 C62 230 92 217 120 202 C150 185 176 165 200 148 C218 135 233 123 250 112"/>
+            <path class="fig-line fig-line--top" d="M30 238 C56 227 80 204 100 178 C124 147 146 116 166 90 C186 64 212 49 250 44"/>
+            <circle class="fig-dot" cx="30" cy="238" r="3.4"/>
+          </svg>
+          <span class="fig-lbl fig-lbl--top">Coaching directly with me</span>
+          <span class="fig-lbl fig-lbl--mid">With the books</span>
+          <span class="fig-lbl fig-lbl--low">Doing what you&rsquo;re doing now</span>
+        </div>
+      </figure>
     </div>
   </section>
 
@@ -741,28 +769,6 @@ h1 .head-script{
         </article>
 
       </div>
-    </div>
-  </section>
-
-  <!-- ===== Figure: rate of progress ===== -->
-  <section class="fig-section" aria-label="Rate of progress">
-    <div class="wrap reveal">
-      <figure class="fig">
-        <div class="fig-plot">
-          <svg class="fig-svg" viewBox="0 0 420 300" role="img"
-               aria-label="Three trajectories rising from one starting point. Doing what you are doing now stays flat then dips. With the books climbs steadily. Coaching directly with me climbs fastest and furthest.">
-            <path class="fig-axis" d="M27 44 C26 108 28 172 28 242"/>
-            <path class="fig-axis" d="M26 246 C92 248 160 250 238 250"/>
-            <path class="fig-line fig-line--low" d="M30 238 C64 235 96 233 128 236 C158 239 182 243 204 249 C218 253 232 257 250 262"/>
-            <path class="fig-line fig-line--mid" d="M30 238 C62 230 92 217 120 202 C150 185 176 165 200 148 C218 135 233 123 250 112"/>
-            <path class="fig-line fig-line--top" d="M30 238 C56 227 80 204 100 178 C124 147 146 116 166 90 C186 64 212 49 250 44"/>
-            <circle class="fig-dot" cx="30" cy="238" r="3.4"/>
-          </svg>
-          <span class="fig-lbl fig-lbl--top">Coaching directly with me</span>
-          <span class="fig-lbl fig-lbl--mid">With the books</span>
-          <span class="fig-lbl fig-lbl--low">Doing what you&rsquo;re doing now</span>
-        </div>
-      </figure>
     </div>
   </section>
 
